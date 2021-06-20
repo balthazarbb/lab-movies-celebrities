@@ -1,12 +1,19 @@
-const mongoose = require('mongoose') // here youare importing the whole package
-// const { Schema } = require('mongoose') // here zou are onlz importing the Schema Class from mongoose
 
-let CelebritySchema = new mongoose.Schema({
+// models/Celebrity.model.js
+
+const { Schema, model } = require("mongoose");
+
+const celebritySchema = new Schema(
+  {
     name: String,
     occupation: String,
     catchPhrase: String
-})
+  },
+  {
+    timestamps: true
+  }
+);
 
-let CelebrityModel = mongoose.model('celebrities', CelebritySchema);
+const Celebrity = model("Celebrity", celebritySchema);
 
-module.exports = CelebrityModel
+module.exports = Celebrity;

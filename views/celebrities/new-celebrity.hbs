@@ -1,17 +1,14 @@
-<h2>New Celebrities</h2>
-<form action = "/celebrities/create" method = "POST">
+{{!-- views/celebrities/new-celebrity.hbs --}}
 
-<label class="form-label" for="name">Name: </label>
-<input classtype ="text" name="name">
+<h2>ADD A NEW CELEBRITY</h2>
 
-<label class="form-label" for="occupation">Occupation: </label>
-<input type ="text" occupation = "occupation">
+<form action="/celebrities/create" method="POST" >
+  <input type="text" name="name" id="" placeholder="celebrity name"> <br>
+  <input type="text" name="occupation" id="" placeholder="celebrity occupation"> <br>
+  <input type="text" name="catchPhrase" id="" placeholder="celebrity catch phrase"> <br>
 
-<label class="form-label" for= "catchPhrase">CatchPhrase: </label>
-<input type ="text" catchPhrase = "catchPhrase">
-
-<button class="btn btn-primary" type="submit">SUBMIT New Celebs:</button>
-
-
-
+  <button type="submit">Save the celebrity</button>
 </form>
+
+<hr>
+<a href="/"><button>Back to home</button></a>

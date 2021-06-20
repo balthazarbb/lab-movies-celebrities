@@ -1,12 +1,21 @@
-const {Schema, model} = require('mongoose') // here youare importing the whole package
-//const { Schema } = require('mongoose') // here zou are onlz importing the Schema Class from mongoose
+// models/Movie.model.js
 
-let movieSchema = new Schema({
+const { Schema, model } = require("mongoose");
+
+const movieSchema = new Schema(
+  {
     title: String,
     genre: String,
-    plot: String
-})
+    plot: String,
+    cast: [{ type: Schema.Types.ObjectId, ref: 'Celebrity' }]
+  },
+  {
+    timestamps: true
+  }
+);
 
-const MovieModel = model('movies', movieSchema);
+// 'type: Schema.Types.ObjectId, ref: 'Celebrity'' will create a relation between the `Movie` model and the `Celebrity` model
 
-module.exports = MovieModel;
+const Movie = model("Movie", movieSchema);
+
+module.exports = Movie;
